@@ -3,7 +3,7 @@ package dev.wyedusk.duskthings;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import dev.wyedusk.duskthings.compat.CompatHandler;
-import net.minecraft.core.registries.Registries;
+import dev.wyedusk.duskthings.item.SpectralLensItem;import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
@@ -41,7 +41,7 @@ public class DuskThings {
      */
 
     // Items
-    public static final DeferredItem<Item> SPECTRAL_LENS = ITEMS.registerItem("spectral_lens", Item::new,
+    public static final DeferredItem<Item> SPECTRAL_LENS = ITEMS.registerItem("spectral_lens", SpectralLensItem::new,
             new Item.Properties()
                     .stacksTo(1));
 

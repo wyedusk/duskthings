@@ -8,7 +8,8 @@ import net.neoforged.fml.ModList;
 import java.util.Set;
 
 public class GhostHelper {
-    public static boolean playerCanAlwaysSeeGhosts(Player player) {
+    public static boolean playerCanAlwaysSeeGhosts(
+            Player player) {
         return (player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get())) && !ModList.get().isLoaded("curios"))
                 | player.getData(DuskThings.IS_GHOST).equals(true)
                 | player.getMainHandItem().is(DuskThings.SPECTRAL_LENS) | player.getOffhandItem().is(DuskThings.SPECTRAL_LENS)

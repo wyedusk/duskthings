@@ -2,6 +2,7 @@ package dev.wyedusk.duskthings.datagen;
 
 import dev.wyedusk.duskthings.DuskThings;
 import dev.wyedusk.duskthings.datagen.client.DTItemModelProvider;
+import dev.wyedusk.duskthings.datagen.server.DTRecipeProvider;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
@@ -26,6 +27,12 @@ public class DTDataGenerator implements IModBusEvent {
         generator.addProvider(
                 event.includeClient(),
                 new DTItemModelProvider(output, existingFileHelper)
+        );
+
+        // Server-side Providers
+        generator.addProvider(
+                event.includeServer(),
+                new DTRecipeProvider(output, provider)
         );
     }
 }
