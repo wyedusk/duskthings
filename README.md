@@ -1,16 +1,21 @@
 <h1 align="center">Dusk's Things</h1>
 <p align="center"><i>A collection of random things I've made, all bundled into one mod.</i></p>
-<p align="center"><a href="https://github.com/wyedusk/duskthings"><img alt="Available on GitHub" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a> <a href="https://neoforged.net/"><img alt="Available for NeoForge" height="56" src="https://raw.githubusercontent.com/cassiancc/Cassians-Badges/refs/heads/main/cozy/NeoForge.svg"></a></p>
+<p align="center"><a href="https://github.com/wyedusk/duskthings"><img alt="Available on GitHub" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/github_vector.svg"></a> <a href="https://modrinth.com/mod/duskthings"><img alt="modrinth" height="56" src="https://cdn.jsdelivr.net/npm/@intergrav/devins-badges@3/assets/cozy/available/modrinth_vector.svg"></a> <a href="https://neoforged.net/"><img alt="Available for NeoForge" height="56" src="https://raw.githubusercontent.com/cassiancc/Cassians-Badges/refs/heads/main/cozy/NeoForge.svg"></a></p>
 
 <h2>About</h2>
 <p>This mod bundles a bunch of random things I've made into one singular mod. You can find a list of all features this mod adds below.</p>
 
 <h2>Features</h2>
-<h3>Ghost Players</h3>
-The ghost players feature is heavily inspired by Content SMP, primarily the mod used for having Mouthpiece become invisible.
+<h3>Ghost Entities</h3>
+<img src="media/images/ghost_demo_pig.png" alt="An image of a Minecraft pig that is translucent, with a crafting recipe in the background.">
+
+The ghost entities feature is heavily inspired by Content SMP, primarily the mod used for having Mouthpiece become invisible.
 
 
 This feature adds the capability to become a ghost (currently only through an operator command), making it so you're only visible at the edge of a player's vision. You are always able to see yourself, however.
+
+
+On top of players, you can also make entities invisible, shown above in the demo where a pig has been turned into a ghost!
 
 <h4><img width=16 src="media/images/spectral_lens.png"> Spectral Lens</h4>
 There is an item called the Spectral Lens, which allows you to see both ghosts and invisible entities when worn in the Charm slot (if you have <a href="modrinth.com/mod/curios">Curios</a>), or when held in your inventory (if you have no accessory mods).
