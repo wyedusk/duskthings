@@ -1,22 +1,17 @@
 package dev.wyedusk.duskthings.client.renderer;
 
 import dev.wyedusk.duskthings.DuskThings;
-import dev.wyedusk.duskthings.compat.curios.CuriosBridge;
 import dev.wyedusk.duskthings.utility.GhostHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
-import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
-import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
-
-import java.util.Set;
 
 @EventBusSubscriber(modid = DuskThings.MODID, value = Dist.CLIENT)
 public class EntityRenderEvent {
