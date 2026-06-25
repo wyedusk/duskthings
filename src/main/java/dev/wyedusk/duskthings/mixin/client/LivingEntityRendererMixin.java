@@ -22,7 +22,9 @@ public class LivingEntityRendererMixin {
     private static final ThreadLocal<LivingEntity> CURRENT_ENTITY = new ThreadLocal<>();
 
     @Inject(method = "render", at = @At("HEAD"))
-    private void duskthings$render$captureCurrentEntity(LivingEntity entity, float yaw, float tick, PoseStack pose, MultiBufferSource buffer, int light, CallbackInfo ci) {
+    private void duskthings$render$captureCurrentEntity(
+            LivingEntity entity, float yaw, float tick, PoseStack pose, MultiBufferSource buffer, int light,
+            CallbackInfo ci) {
         CURRENT_ENTITY.set(entity);
     }
 
@@ -33,7 +35,8 @@ public class LivingEntityRendererMixin {
             ),
             index = 4
     )
-    private int duskthings$render$modifyRenderToBufferAlpha(int original) {
+    private int duskthings$render$modifyRenderToBufferAlpha(
+            int original) {
         if (CURRENT_ENTITY.get().getData(DuskThings.IS_GHOST).equals(true)) {
             int alpha = 120;
             return (alpha << 24) | (original & 0x00FFFFFF);

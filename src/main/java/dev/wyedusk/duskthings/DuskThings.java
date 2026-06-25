@@ -64,7 +64,8 @@ public class DuskThings {
         modContainer.registerConfig(ModConfig.Type.COMMON, DTConfig.SPEC);
     }
 
-    public void buildCreativeTab(BuildCreativeModeTabContentsEvent event) {
+    public void buildCreativeTab(
+            BuildCreativeModeTabContentsEvent event) {
         if (event.getTabKey() == CREATIVE_TAB.getKey()) {
             for (DeferredHolder<Item, ? extends Item> itemHolder : ITEMS.getEntries()) {
                 event.accept(itemHolder.get());
