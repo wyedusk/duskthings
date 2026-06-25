@@ -7,7 +7,7 @@
 
 <h2>Features</h2>
 <h3>Ghost Entities</h3>
-<img src="media/images/ghost_demo_pig.png" alt="An image of a Minecraft pig that is translucent, with a crafting recipe in the background.">
+<img src="media/images/ghost_demo_pig.png" alt="An image of a Minecraft pig that is translucent, with the crafting recipe for a Spectral Lens in the background.">
 
 The ghost entities feature is heavily inspired by Content SMP, primarily the mod used for having Mouthpiece become invisible.
 
