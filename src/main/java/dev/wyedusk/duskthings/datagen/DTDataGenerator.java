@@ -2,6 +2,7 @@ package dev.wyedusk.duskthings.datagen;
 
 import dev.wyedusk.duskthings.DuskThings;
 import dev.wyedusk.duskthings.datagen.client.DTItemModelProvider;
+import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
 import net.neoforged.bus.api.SubscribeEvent;
@@ -10,6 +11,8 @@ import net.neoforged.fml.event.IModBusEvent;
 import net.neoforged.neoforge.common.data.ExistingFileHelper;
 import net.neoforged.neoforge.data.event.GatherDataEvent;
 
+import java.util.concurrent.CompletableFuture;
+
 @EventBusSubscriber(modid = DuskThings.MODID)
 public class DTDataGenerator implements IModBusEvent {
     @SubscribeEvent
@@ -17,6 +20,7 @@ public class DTDataGenerator implements IModBusEvent {
         DataGenerator generator = event.getGenerator();
         PackOutput output = generator.getPackOutput();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
+        CompletableFuture<HolderLookup.Provider> provider = event.getLookupProvider();
 
         // Client-side Providers
         generator.addProvider(

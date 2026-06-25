@@ -2,6 +2,8 @@ package dev.wyedusk.duskthings;
 
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
+import dev.wyedusk.duskthings.compat.CompatHandler;
+import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -40,7 +42,9 @@ public class DuskThings {
      */
 
     // Items
-    public static final DeferredItem<Item> SPECTRAL_LENS = ITEMS.registerSimpleItem("spectral_lens");
+    public static final DeferredItem<Item> SPECTRAL_LENS = ITEMS.registerItem("spectral_lens", Item::new,
+            new Item.Properties()
+                    .stacksTo(1));
 
     // Creative Tab
     public static final DeferredHolder<CreativeModeTab, CreativeModeTab> CREATIVE_TAB = CREATIVE_MODE_TABS.register(MODID, () -> CreativeModeTab.builder()
@@ -55,6 +59,8 @@ public class DuskThings {
     public DuskThings(
             IEventBus modEventBus, ModContainer modContainer) {
         modEventBus.addListener(this::buildCreativeTab);
+
+        CompatHandler.initialiseCompats(modEventBus);
 
         BLOCKS.register(modEventBus);
         ITEMS.register(modEventBus);

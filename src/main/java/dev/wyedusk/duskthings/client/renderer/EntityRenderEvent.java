@@ -1,6 +1,7 @@
 package dev.wyedusk.duskthings.client.renderer;
 
 import dev.wyedusk.duskthings.DuskThings;
+import dev.wyedusk.duskthings.compat.curios.CuriosBridge;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.effect.MobEffects;
@@ -10,6 +11,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.ModList;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
 
@@ -29,7 +31,10 @@ public class EntityRenderEvent {
 
         boolean canAlwaysSeeGhosts = false;
         if (player != null) {
-            canAlwaysSeeGhosts = player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get()));
+            canAlwaysSeeGhosts = (player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get())) && !ModList.get().isLoaded("curios"))
+                               | player.getData(DuskThings.IS_GHOST).equals(true)
+                               | player.getMainHandItem().is(DuskThings.SPECTRAL_LENS) | player.getOffhandItem().is(DuskThings.SPECTRAL_LENS)
+                               | (CuriosBridge.hasCuriosItem(player, DuskThings.SPECTRAL_LENS.get()) && ModList.get().isLoaded("curios"));
         }
         if (canAlwaysSeeGhosts) return;
 
