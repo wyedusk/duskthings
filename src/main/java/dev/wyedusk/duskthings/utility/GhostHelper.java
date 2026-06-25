@@ -12,6 +12,7 @@ public class GhostHelper {
         return (player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get())) && !ModList.get().isLoaded("curios"))
                 | player.getData(DuskThings.IS_GHOST).equals(true)
                 | player.getMainHandItem().is(DuskThings.SPECTRAL_LENS) | player.getOffhandItem().is(DuskThings.SPECTRAL_LENS)
+                | player.isSpectator()
                 | (CuriosBridge.hasCuriosItem(player, DuskThings.SPECTRAL_LENS.get()) && ModList.get().isLoaded("curios"));
     }
 }
