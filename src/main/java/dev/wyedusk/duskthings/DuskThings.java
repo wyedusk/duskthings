@@ -3,7 +3,6 @@ package dev.wyedusk.duskthings;
 import com.mojang.logging.LogUtils;
 import com.mojang.serialization.Codec;
 import dev.wyedusk.duskthings.compat.CompatHandler;
-import net.minecraft.client.renderer.item.ItemProperties;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;

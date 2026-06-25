@@ -2,6 +2,7 @@ package dev.wyedusk.duskthings.client.renderer;
 
 import dev.wyedusk.duskthings.DuskThings;
 import dev.wyedusk.duskthings.compat.curios.CuriosBridge;
+import dev.wyedusk.duskthings.utility.GhostHelper;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.effect.MobEffects;
@@ -26,15 +27,11 @@ public class EntityRenderEvent {
         Player player = Minecraft.getInstance().player;
 
         if (entity == player) return; // don't hide the main player
-        entity.setInvisible(entity.hasEffect(MobEffects.INVISIBILITY));
         if (entity.getData(DuskThings.IS_GHOST).equals(false)) return;
 
         boolean canAlwaysSeeGhosts = false;
         if (player != null) {
-            canAlwaysSeeGhosts = (player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get())) && !ModList.get().isLoaded("curios"))
-                               | player.getData(DuskThings.IS_GHOST).equals(true)
-                               | player.getMainHandItem().is(DuskThings.SPECTRAL_LENS) | player.getOffhandItem().is(DuskThings.SPECTRAL_LENS)
-                               | (CuriosBridge.hasCuriosItem(player, DuskThings.SPECTRAL_LENS.get()) && ModList.get().isLoaded("curios"));
+            canAlwaysSeeGhosts = GhostHelper.playerCanAlwaysSeeGhosts(player);
         }
         if (canAlwaysSeeGhosts) return;
 
@@ -55,7 +52,6 @@ public class EntityRenderEvent {
 
         if (!isInEdgeZone) {
             event.setCanceled(true);
-            entity.setInvisible(true);
         }
     }
 }

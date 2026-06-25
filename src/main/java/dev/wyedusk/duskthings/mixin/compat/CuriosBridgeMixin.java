@@ -4,7 +4,6 @@ import dev.wyedusk.duskthings.DuskThings;
 import dev.wyedusk.duskthings.compat.curios.CuriosBridge;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.Item;
-import net.neoforged.neoforge.items.IItemHandler;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
