@@ -1,0 +1,12 @@
+{
+  "required": true,
+  "package": "dev.wyedusk.duskthings.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [],
+  "client": [
+    "client.LivingEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

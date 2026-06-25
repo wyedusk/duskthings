@@ -6,11 +6,14 @@ import net.minecraft.client.model.EntityModel;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.client.event.RenderLivingEvent;
+
+import java.util.Set;
 
 @EventBusSubscriber(modid = DuskThings.MODID, value = Dist.CLIENT)
 public class EntityRenderEvent {
@@ -18,10 +21,17 @@ public class EntityRenderEvent {
     public static void onRenderEntity(
             RenderLivingEvent.Pre<LivingEntity, EntityModel<LivingEntity>> event) {
         LivingEntity entity = event.getEntity();
+        Player player = Minecraft.getInstance().player;
 
-        if (entity == Minecraft.getInstance().player) return; // don't hide the main player
+        if (entity == player) return; // don't hide the main player
         entity.setInvisible(entity.hasEffect(MobEffects.INVISIBILITY));
         if (entity.getData(DuskThings.IS_GHOST).equals(false)) return;
+
+        boolean canAlwaysSeeGhosts = false;
+        if (player != null) {
+            canAlwaysSeeGhosts = player.getInventory().hasAnyOf(Set.of(DuskThings.SPECTRAL_LENS.get()));
+        }
+        if (canAlwaysSeeGhosts) return;
 
         Minecraft mc = Minecraft.getInstance();
         Entity cameraEntity = mc.getCameraEntity();

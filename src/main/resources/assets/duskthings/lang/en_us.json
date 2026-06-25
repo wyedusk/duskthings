@@ -1,5 +1,5 @@
 {
-  "itemGroup.duskthings": "Example Mod Tab",
-  "block.duskthings.example_block": "Example Block",
-  "item.duskthings.example_item": "Example Item"
+  "itemGroup.duskthings": "Dusk's Things",
+
+  "item.duskthings.spectral_lens": "Spectral Lens"
 }
