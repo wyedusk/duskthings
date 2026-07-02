@@ -4,5 +4,10 @@
   "item.duskthings.spectral_lens": "Spectral Lens",
 
   "item.duskthings.spectral_lens.tooltip": "When in your inventory, allows you to see ghosts and invisible entities.",
-  "item.duskthings.spectral_lens.tooltip.curios": "When equipped in the %s slot, allows you to see ghosts and invisible entities."
+  "item.duskthings.spectral_lens.tooltip.curios": "When equipped in the %s slot, allows you to see ghosts and invisible entities.",
+
+  "duskthings.configuration.ghost_entities": "Ghost Entities",
+  "duskthings.configuration.ghosts_feature_enabled": "Ghost Entities Enabled§c*§r",
+  "duskthings.configuration.ghosts_feature_enabled.tooltip": "§c* REQUIRES RESTART§r\nWhether the Ghost Entities feature is enabled.",
+  "duskthings.configuration.ghost_transparency": "Ghost Transparency"
 }

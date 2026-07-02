@@ -1,6 +1,7 @@
 package dev.wyedusk.duskthings.mixin.client;
 
 import com.mojang.blaze3d.vertex.PoseStack;
+import dev.wyedusk.duskthings.DTConfig;
 import dev.wyedusk.duskthings.DuskThings;
 import dev.wyedusk.duskthings.utility.GhostHelper;
 import net.minecraft.client.Minecraft;
@@ -55,7 +56,7 @@ public abstract class LivingEntityRendererMixin {
         if (entityInvisible && GhostHelper.playerCanAlwaysSeeGhosts(minecraft.player)) targetColor = 654311423;
         // Translucency Modifier
         if (CURRENT_ENTITY.get().getData(DuskThings.IS_GHOST).equals(true) || CURRENT_ENTITY.get().hasEffect(MobEffects.INVISIBILITY)) {
-            int alpha = 120;
+            int alpha = DTConfig.ghostTransparency;
             targetColor = (alpha << 24) | (targetColor & 0x00FFFFFF);
         }
 
