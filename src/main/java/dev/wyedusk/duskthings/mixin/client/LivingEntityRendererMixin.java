@@ -53,7 +53,7 @@ public abstract class LivingEntityRendererMixin {
         boolean flag1 = !(this.isBodyVisible(CURRENT_ENTITY.get()))
                 && !(entityInvisible);
         int targetColor = flag1 ? 654311423 : -1;
-        if (entityInvisible && GhostHelper.playerCanAlwaysSeeGhosts(minecraft.player)) targetColor = 654311423;
+        if (entityInvisible && GhostHelper.playerCanAlwaysSeeGhosts(minecraft.player) && DTConfig.spectralLensShowsInvisible) targetColor = 654311423;
         // Translucency Modifier
         if (CURRENT_ENTITY.get().getData(DuskThings.IS_GHOST).equals(true) || CURRENT_ENTITY.get().hasEffect(MobEffects.INVISIBILITY)) {
             int alpha = DTConfig.ghostTransparency;
@@ -71,6 +71,7 @@ public abstract class LivingEntityRendererMixin {
         Player player = Minecraft.getInstance().player;
         assert player != null;
         if (entity.getData(DuskThings.IS_GHOST).equals(false) && (entity.isInvisibleTo(player) && !GhostHelper.playerCanAlwaysSeeGhosts(player))) return;
+        if (entity.isInvisibleTo(player) && !DTConfig.spectralLensShowsInvisible) return;
         LivingEntityRenderer<LivingEntity, EntityModel<LivingEntity>> renderer = (LivingEntityRenderer<LivingEntity, EntityModel<LivingEntity>>)(Object)this;
         ResourceLocation texture = renderer.getTextureLocation(entity);
 

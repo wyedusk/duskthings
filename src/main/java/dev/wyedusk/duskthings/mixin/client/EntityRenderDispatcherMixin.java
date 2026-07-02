@@ -18,6 +18,5 @@ public class EntityRenderDispatcherMixin {
             PoseStack poseStack, MultiBufferSource buffer, Entity entity, float p_114461_, float p_114462_, LevelReader level, float p_114464_,
             CallbackInfo ci) {
         if (entity.getData(DuskThings.IS_GHOST).equals(true)) ci.cancel();
-
     }
 }
